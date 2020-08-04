@@ -1,0 +1,163 @@
+<html>
+	<head>
+	<title></title>
+		<link rel="stylesheet" href="style-css.css">
+	</head>
+	<body>
+		<div id="chart">
+			<img src="Background_Axis.png" id="gradient">;
+		</div>
+		
+		<div>
+		
+		<table  cellpadding="4" id="icon-area">
+			<tbody>
+				<tr>
+				<td><div id="i_zetterburn"><div id="i_zetterburnheader"><img src="Zetterburn.png"></div></td>
+				<td><div id="i_orcane">
+					<div id="i_orcaneheader">
+						<img src="Orcane.png">
+					</div>
+				</div></td>
+				<td><div id="i_wrastor">
+					<div id="i_wheaderheader">
+						<img src="Wrastor.png">
+					</div>
+				</div></td>
+				<td><div id="i_kragg">
+					<div id="i_kraggheader">
+						<img src="Kragg.png">
+					</div>
+				</div></td>
+				<td><div id="i_forsburn">
+					<div id="i_fheaderheader">
+						<img src="Forsburn.png">
+					</div>
+				</div></td>
+				<td><div id="i_maypul">
+					<div id="i_maypulheader">
+						<img src="Maypul.png">
+					</div>
+				</div></td>
+				<td><div id="i_absa">
+					<div id="i_absaheader">
+						<img src="Absa.png">
+					</div>
+				</div></td>
+				</div>
+				</tr>
+				
+				<tr>
+					<td><div id="i_etalus">
+					<div id="i_etalusheader">
+					<img src="Etalus.png">
+				</div>
+			</div></td>
+					<td><div id="i_ranno">
+				<div id="i_rannoheader">
+					<img src="Ranno.png">
+				</div>
+			</div></td>
+					<td><div id="i_clairen">
+				<div id="i_clairenheader">
+					<img src="Clairen.png">
+				</div>
+			</div></td>
+					<td><div id="i_sylvanos">
+				<div id="i_sylvanosheader">
+					<img src="Sylvanos.png">
+				</div>
+			</div></td>
+					<td><div id="i_elliana">
+				<div id="i_ellianaheader">
+					<img src="Elliana.png">
+				</div>
+			</div></td>
+					<td><div id="i_ori">
+				<div id="i_oriheader">
+					<img src="Ori&Sein.png">
+				</div>
+			</div></td>
+					<td><div id="i_shovelknight">
+				<div id="i_shovelknightheader">
+					<img src="ShovelKnight.png">
+				</div>
+			</div></td>
+					
+				</tr>
+			</tbody>
+		</table>
+
+			
+			
+			
+			
+			
+			
+			
+		</div>	
+	
+
+		<script type="text/javascript">
+	// Make the DIV element draggable:
+dragElement(document.getElementById("i_zetterburn"));
+dragElement(document.getElementById("i_orcane"));
+dragElement(document.getElementById("i_wrastor"));
+dragElement(document.getElementById("i_kragg"));
+dragElement(document.getElementById("i_forsburn"));
+dragElement(document.getElementById("i_maypul"));
+dragElement(document.getElementById("i_absa"));
+dragElement(document.getElementById("i_etalus"));
+dragElement(document.getElementById("i_ranno"));
+dragElement(document.getElementById("i_clairen"));
+dragElement(document.getElementById("i_sylvanos"));
+dragElement(document.getElementById("i_elliana"));
+dragElement(document.getElementById("i_ori"));
+dragElement(document.getElementById("i_shovelknight"));
+
+
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+	
+	</script>
+	</body>
+</html>
